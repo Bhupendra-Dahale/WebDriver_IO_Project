@@ -1,6 +1,5 @@
 import {Given, When, Then} from "@cucumber/cucumber";
 import chai from "chai"
-import {key} from "webdriverio"
 
 Given(/^Google page is opened$/,async function(){
     await browser.url("https://www.google.com")
@@ -29,7 +28,7 @@ Then(/^URL should match with (.*)$/, async function(ExpectedURL) {
  *  Web Ineractions
  */
 Given(/^WebPage page is opened$/, async function () {
-    await browser.url("frames")
+    await browser.url("inputs")
     await browser.setTimeout({implicit: 15000, pageLoad: 10000})    // timeout implicitly wait
     // await browser.maximizeWindow()
     await browser.pause(2000)
@@ -44,18 +43,18 @@ When(/^we interact with elements$/, async function () {
      * 3. Click and type
      * 4. Slow typing
      */
-    // let num = 12345
-    // let StrNum = num.toString()
+    let num = 12345
+    let StrNum = num.toString()
 
-    // let ele = await $(`[type=number]`)
-    // // await ele.setValue(12345)            //this will add value by clearing the input box(if had any entry)
-    // await ele.click()
-    // // await ele.addValue(12345)            //this will add value without clearing the input box
-    // for(let i=0; i<StrNum.length; i++){
-    //     let CharStr = StrNum.charAt(i)
-    //     await browser.pause(1000)
-    //     await browser.keys(CharStr)
-    // }
+    let ele = await $(`[type=number]`)
+    // await ele.setValue(12345)            //this will add value by clearing the input box(if had any entry)
+    await ele.click()
+    // await ele.addValue(12345)            //this will add value without clearing the input box
+    for(let i=0; i<StrNum.length; i++){
+        let CharStr = StrNum.charAt(i)
+        await browser.pause(1000)
+        await browser.keys(CharStr)
+    }
 
     /**
      * B. Dropdown
@@ -188,10 +187,10 @@ When(/^we interact with elements$/, async function () {
      * 1. switchToFrame()
      * 2. switchToParentFrame()
      */
-    await $(`=iFrame`).click()
-    //Switch to iFrame
-    let iframe= await $(`#mce_0_ifr`)
-    await browser.switchToFrame(iframe)
+    // await $(`=iFrame`).click()
+    // //Switch to iFrame
+    // let iframe= await $(`#mce_0_ifr`)
+    // await browser.switchToFrame(iframe)
     //Interactions with the iFrame
     // //Approach 1
     // await $(`#tinymce`).setValue("Hey I sucessfully switch to iFrame....")
@@ -212,7 +211,7 @@ When(/^we interact with elements$/, async function () {
      * Methods:
      * 1. scrollIntoView
      */
-    await $(`span=Best Sellers in Books`).scrollIntoView()   //It will scroll till elemenet will be on top of the page
+    // await $(`span=Best Sellers in Books`).scrollIntoView()   //It will scroll till elemenet will be on top of the page
     // await $(`span=Best Sellers in Books`).scrollIntoView(false)  //this will scroll -''- bottome of the page
 
 })
