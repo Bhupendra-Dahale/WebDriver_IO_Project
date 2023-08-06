@@ -8,8 +8,8 @@ Given(/^Login to inventory web app$/,async function(){
     
     /** Login to the page */
     try {
-        await $(`#user-name`).setValue(process.env.User_Std_USERNAME)
-        await $(`#password`).setValue(process.env.User_Std_PASSWORD)
+        await $(`#user-name`).setValue(process.env.User_Std_USERNAME!)
+        await $(`#password`).setValue(process.env.User_Std_PASSWORD!)
         await $(`[type=submit]`).click()
     } catch (err) {
         console.log(`Error with credential, Retrying.....`)

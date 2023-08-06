@@ -39,9 +39,19 @@ export const config: Options.Testrunner = {
     // will be called from there.
     //
     specs: [
-        `${process.cwd()}/test/features/**/*.feature`   //This is an Absolute path of the feature file
+        // `${process.cwd()}/test/features/**/*.feature`   //This is an Absolute path of the feature file
         // ToDo: define location for spec files here    // `./test/features/**/*.feature` is a relative path
+        [
+            `./test/features/**/Inventory.feature`,
+            `./test/features/**/demo.feature`
+        ]
     ],
+    suites: {
+        Test: [
+            `./test/features/**/Inventory.feature`,
+            `./test/features/**/demo.feature`
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -74,8 +84,8 @@ export const config: Options.Testrunner = {
     capabilities: [{
         browserName: 'chrome',
         "goog:chromeOptions": {
-            // args : headless.toUpperCase() === "Y" ?  ["--headless", "--disable-dev-shm-usage", "--no-sandbox", "--window-size=1920,1080"] : []
-            args : ["--headless", "--disable-dev-shm-usage", "--no-sandbox", "--window-size=1920,1080"]
+            // args : headless!.toUpperCase() === "Y" ?  ["--headless", "--disable-dev-shm-usage", "--no-sandbox", "--window-size=1920,1080"] : []
+            // args : ["--headless", "--disable-dev-shm-usage", "--no-sandbox", "--window-size=1920,1080"]
         },
         timeouts: { implicit: 15000, pageLoad: 20000, script: 30000 },
     }],
