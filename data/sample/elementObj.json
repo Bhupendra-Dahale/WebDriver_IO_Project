@@ -1,0 +1,34 @@
+{
+  "sessionId": "78f7c075115432d827da1b6fa067a0de",
+  "elementId": "6480CAAD64299EEF73E066DE18A63972_element_2",
+  "element-6066-11e4-a52e-4f735466cecf": "6480CAAD64299EEF73E066DE18A63972_element_2",
+  "selector": "[type=search]",
+  "parent": {
+    "sessionId": "78f7c075115432d827da1b6fa067a0de",
+    "capabilities": {
+      "acceptInsecureCerts": false,
+      "browserName": "chrome",
+      "browserVersion": "115.0.5790.111",
+      "chrome": {
+        "chromedriverVersion": "115.0.5790.102 (90efd4b0ad6aa15eeafcdabd5817ae939f7ba059-refs/branch-heads/5790_90@{#9})",
+        "userDataDir": "C:\\WINDOWS\\SystemTemp\\scoped_dir15752_1141482593"
+      },
+      "goog:chromeOptions": { "debuggerAddress": "localhost:58967" },
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "windows",
+      "proxy": {},
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": { "implicit": 15000, "pageLoad": 20000, "script": 30000 },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:extension:credBlob": true,
+      "webauthn:extension:largeBlob": true,
+      "webauthn:extension:minPinLength": true,
+      "webauthn:extension:prf": true,
+      "webauthn:virtualAuthenticators": true
+    }
+  },
+  "isReactElement": false,
+  "isShadowElement": false
+}

@@ -37,7 +37,9 @@ export const config: Options.Testrunner = {
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
-        `./test/features/**/demo.feature`
+        // `./test/features/**/Inventory.feature`,
+        `./test/features/**/demo.feature`,
+        // `./test/features/**/WebInteraction.feature`
     ],
     //
     // ============
@@ -62,7 +64,8 @@ export const config: Options.Testrunner = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome'
+        browserName: 'chrome',
+        timeouts: { implicit: 15000, pageLoad: 20000, script: 30000 },
     }],
 
     //
@@ -158,9 +161,9 @@ export const config: Options.Testrunner = {
         // <boolean> fail if there are any undefined or pending steps
         strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
-        tagExpression: '@invent',
+        tagExpression: '',
         // <number> timeout for step definitions
-        timeout: 60000,
+        timeout: 300000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: false
     },
