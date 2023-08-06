@@ -2,6 +2,8 @@ import { Then } from "@cucumber/cucumber";
 import chai from "chai";
 
 Then(/^Inventory page should list (.*)$/, async function (NumberOfItems) {
+    if (!NumberOfItems)
+        throw Error(`>>> Invalid No is provided : ${NumberOfItems}`)
     let eleArr = await $$(`.inventory_item_name`)
     chai.expect(eleArr.length).to.equal(parseInt(NumberOfItems))    //parseInt to change str to int
 })

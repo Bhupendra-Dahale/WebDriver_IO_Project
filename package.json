@@ -4,8 +4,11 @@
   "description": "webdriver_IO tests",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "wdio": "wdio run ./wdio.conf.ts"
+    "test": "Hello WDIO..!!",
+    "wdio": "wdio run ./wdio.conf.ts",
+    "demo":"npx wdio wdio.conf.ts --cucumberOpts.tagExpression='@demo'",
+    "web": "npx wdio wdio.conf.ts --cucumberOpts.tagExpression='@web'",
+    "invent": "npx wdio wdio.conf.ts --cucumberOpts.tagExpression='@invent'"
   },
   "keywords": [
     "webdriverIO",

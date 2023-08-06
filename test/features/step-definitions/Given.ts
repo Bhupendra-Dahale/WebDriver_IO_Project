@@ -4,20 +4,27 @@ import { Given } from "@cucumber/cucumber";
 Given(/^Login to inventory web app$/,async function(){
     /** Inventory page URL */
     await browser.url(`https://www.saucedemo.com/`)
-    await browser.setTimeout({implicit:15000, pageLoad: 10000})
 
     /** Login to the page */
-    await $(`#user-name`).setValue("standard_user")
-    await $(`#password`).setValue("secret_sauce")
-    await $(`[type=submit]`).click()
-    console.log(`>> login is successful`)
-    await browser.pause(5000)
+    try {
+        await $(`#user-name`).setValue("standard_user")
+        await $(`#password`).setValue("secret_sauce")
+        await $(`[type=submit]`).click()
+    } catch (err) {
+        console.log(`Error with credential, Retrying.....`)
+        await browser.refresh()                                 //refresh the page
+        await $(`#user-name`).setValue("standard_user")
+        await $(`#password`).setValue("secret_sauce")
+        await $(`[type=submit]`).click()
+    }
 
+    /** login with another user */
+    // await browser.reloadSession()                              //reload session for another user
+    // await browser.url(`https://www.saucedemo.com/`)
+    // await $(`#user-name`).setValue("problem_user")
+    // await $(`#password`).setValue("secret_sauce")
+    // await $(`[type=submit]`).click()
 
-    /** Login Assert */                     //is getText() worked for tags text?
-    // await browser.acceptAlert()
-    // console.log(`>> Alert is Accepted`)
-    // let title = await $(`<title>`).getText()
-    // console.log(`>> title of page is : ${title}`)
-    // chai.expect(title).equals("Swag Labs")
+    // await browser.back()                                     //move backward
+    // await browser.forward()                                  //move forward
 })
