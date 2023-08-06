@@ -4,7 +4,6 @@ import chai from "chai"
 Given(/^Google page is opened$/,async function(){
     await browser.url("https://www.google.com")
     await browser.pause(5000)
-    console.log(`>>> browser specification : ${JSON.stringify(browser)}`)
 })
 
 When(/^we enter the (.*)$/, async function(searchItem) {
@@ -12,7 +11,6 @@ When(/^we enter the (.*)$/, async function(searchItem) {
     let ele= await $(`[type=search]`)
     await ele.setValue(searchItem)
     await browser.keys("Enter")
-    console.log(`>>> element specification : ${JSON.stringify(ele)}`)
 })
 
 Then(/^click on the first search item$/, async function(){

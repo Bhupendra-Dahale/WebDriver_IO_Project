@@ -1,4 +1,12 @@
 import type { Options } from '@wdio/types'
+
+//dotenv to use .env file to store credentials
+import dotenv from "dotenv"
+dotenv.config()
+
+let headless = process.env.HEADLESS
+console.log(`>>> headless definition : ${headless}`)
+
 export const config: Options.Testrunner = {
     //
     // ====================
@@ -38,7 +46,7 @@ export const config: Options.Testrunner = {
     exclude: [
         // 'path/to/excluded/files'
         // `./test/features/**/Inventory.feature`,
-        `./test/features/**/demo.feature`,
+        // `./test/features/**/demo.feature`,
         // `./test/features/**/WebInteraction.feature`
     ],
     //
@@ -65,6 +73,10 @@ export const config: Options.Testrunner = {
     //
     capabilities: [{
         browserName: 'chrome',
+        "goog:chromeOptions": {
+            // args : headless.toUpperCase() === "Y" ?  ["--headless", "--disable-dev-shm-usage", "--no-sandbox", "--window-size=1920,1080"] : []
+            args : ["--headless", "--disable-dev-shm-usage", "--no-sandbox", "--window-size=1920,1080"]
+        },
         timeouts: { implicit: 15000, pageLoad: 20000, script: 30000 },
     }],
 

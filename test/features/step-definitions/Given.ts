@@ -2,13 +2,14 @@ import { Given } from "@cucumber/cucumber";
 // import chai from "chai";
 
 Given(/^Login to inventory web app$/,async function(){
+    console.log(`user name : ${process.env.TEST_STD_USERNAME}`)
     /** Inventory page URL */
     await browser.url(`https://www.saucedemo.com/`)
-
+    
     /** Login to the page */
     try {
-        await $(`#user-name`).setValue("standard_user")
-        await $(`#password`).setValue("secret_sauce")
+        await $(`#user-name`).setValue(process.env.User_Std_USERNAME)
+        await $(`#password`).setValue(process.env.User_Std_PASSWORD)
         await $(`[type=submit]`).click()
     } catch (err) {
         console.log(`Error with credential, Retrying.....`)
