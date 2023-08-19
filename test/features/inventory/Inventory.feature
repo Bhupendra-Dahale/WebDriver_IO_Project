@@ -1,7 +1,7 @@
 Feature: Inventory check TestCase
 
     @invent
-    Scenario Outline: Inventory Items
+    Scenario Outline: <Test_ID>: Inventory Items
         Given Login to inventory web app
         Then  Inventory page should list <NumberOfItems>
         Then Validate all products have valid price

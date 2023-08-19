@@ -24,6 +24,7 @@ Then(/^URL should match with (.*)$/, async function(ExpectedURL) {
     //Dynamic wait
     await browser.waitUntil(async function(){       //this function return boolean value
         return await browser.getTitle() === "WebdriverIO · Next-gen browser and mobile automation test framework for Node.js | WebdriverIO"
+        // return await $(``).isDisplayed() === "WebdriverIO · Next-gen browser and mobile automation test framework for Node.js | WebdriverIO"
     }, {timeout: 15000, interval: 500, timeoutMsg: `Condition Failed Result is : ${await browser.getTitle()}`})
 
     let url= await browser.getUrl();

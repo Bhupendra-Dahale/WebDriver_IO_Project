@@ -10,10 +10,3 @@ Feature: demo feature
     Examples:
         | Test_ID        | searchItem | ExpectedURL            |
         | demo_test_001  | WDIO       | https://webdriver.io/  |
-
-
-
-
-
-
-         

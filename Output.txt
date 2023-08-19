@@ -1,0 +1,34 @@
+
+> webdriver_io_project@1.0.0 Test
+> wdio run ./wdio.conf.ts --suite Test
+
+
+Execution of 1 workers started at 2023-08-07T18:46:14.754Z
+
+[0-0] RUNNING in chrome - file:///C:/Users/BDAHALE/Documents/Workspace/WebDriver_IO_Project/test/features/inventory/Inventory.feature
+[0-0] Error with credential, Retrying.....
+[0-0] >>> result : {"passed":true,"duration":927.617999}
+[0-0] >>> result : {"passed":true,"duration":56.031999}
+[0-0] [[32mINFO[39m]: Checking item price
+[0-0] >>> Price Array : $29.99,$9.99,$15.99,$49.99,$7.99,$15.99
+[0-0] >>> Number Array is : 29.99,9.99,15.99,49.99,7.99,15.99
+[0-0] >>> result : {"passed":true,"duration":259.440899}
+[0-0] PASSED in chrome - file:///C:/Users/BDAHALE/Documents/Workspace/WebDriver_IO_Project/test/features/inventory/Inventory.feature
+
+ "spec" Reporter:
+------------------------------------------------------------------
+[chrome 115.0.5790.111 windows #0-0] Running: chrome (v115.0.5790.111) on windows
+[chrome 115.0.5790.111 windows #0-0] Session ID: f09ca76ad24b05a8faf90e236c1de891
+[chrome 115.0.5790.111 windows #0-0]
+[chrome 115.0.5790.111 windows #0-0] » \test\features\inventory\Inventory.feature
+[chrome 115.0.5790.111 windows #0-0] Inventory check TestCase
+[chrome 115.0.5790.111 windows #0-0] Inventory Items
+[chrome 115.0.5790.111 windows #0-0]    ✓ Given Login to inventory web app
+[chrome 115.0.5790.111 windows #0-0]    ✓ Then Inventory page should list 6
+[chrome 115.0.5790.111 windows #0-0]    ✓ Then Validate all products have valid price
+[chrome 115.0.5790.111 windows #0-0]
+[chrome 115.0.5790.111 windows #0-0] 3 passing (4.2s)
+
+
+Spec Files:	 1 passed, 1 total (100% completed) in 00:00:22 
+

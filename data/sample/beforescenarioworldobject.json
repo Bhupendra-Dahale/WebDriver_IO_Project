@@ -1,0 +1,124 @@
+{
+  "gherkinDocument": {
+    "feature": {
+      "tags": [],
+      "location": { "line": 1, "column": 1 },
+      "language": "en",
+      "keyword": "Feature",
+      "name": "Inventory check TestCase",
+      "description": "",
+      "children": [
+        {
+          "scenario": {
+            "id": "7",
+            "tags": [
+              {
+                "location": { "line": 3, "column": 5 },
+                "name": "@invent",
+                "id": "6"
+              }
+            ],
+            "location": { "line": 4, "column": 5 },
+            "keyword": "Scenario Outline",
+            "name": "<Test_ID>: Inventory Items",
+            "description": "",
+            "steps": [
+              {
+                "id": "0",
+                "location": { "line": 5, "column": 9 },
+                "keyword": "Given ",
+                "keywordType": "Context",
+                "text": "Login to inventory web app"
+              },
+              {
+                "id": "1",
+                "location": { "line": 6, "column": 9 },
+                "keyword": "Then ",
+                "keywordType": "Outcome",
+                "text": "Inventory page should list <NumberOfItems>"
+              },
+              {
+                "id": "2",
+                "location": { "line": 7, "column": 9 },
+                "keyword": "Then ",
+                "keywordType": "Outcome",
+                "text": "Validate all products have valid price"
+              }
+            ],
+            "examples": [
+              {
+                "id": "5",
+                "tags": [],
+                "location": { "line": 9, "column": 9 },
+                "keyword": "Examples",
+                "name": "",
+                "description": "",
+                "tableHeader": {
+                  "id": "3",
+                  "location": { "line": 10, "column": 13 },
+                  "cells": [
+                    {
+                      "location": { "line": 10, "column": 15 },
+                      "value": "Test_ID"
+                    },
+                    {
+                      "location": { "line": 10, "column": 31 },
+                      "value": "NumberOfItems"
+                    }
+                  ]
+                },
+                "tableBody": [
+                  {
+                    "id": "4",
+                    "location": { "line": 11, "column": 13 },
+                    "cells": [
+                      {
+                        "location": { "line": 11, "column": 15 },
+                        "value": "demo_test_001"
+                      },
+                      { "location": { "line": 11, "column": 31 }, "value": "6" }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "comments": [],
+    "uri": "C:\\Users\\BDAHALE\\Documents\\Workspace\\WebDriver_IO_Project\\test\\features\\inventory\\Inventory.feature"
+  },
+  "pickle": {
+    "id": "11",
+    "uri": "C:\\Users\\BDAHALE\\Documents\\Workspace\\WebDriver_IO_Project\\test\\features\\inventory\\Inventory.feature",
+    "astNodeIds": ["7", "4"],
+    "name": "demo_test_001: Inventory Items",
+    "language": "en",
+    "steps": [
+      {
+        "id": "8",
+        "text": "Login to inventory web app",
+        "type": "Context",
+        "astNodeIds": ["0", "4"],
+        "keyword": "Given "
+      },
+      {
+        "id": "9",
+        "text": "Inventory page should list 6",
+        "type": "Outcome",
+        "astNodeIds": ["1", "4"],
+        "keyword": "Then "
+      },
+      {
+        "id": "10",
+        "text": "Validate all products have valid price",
+        "type": "Outcome",
+        "astNodeIds": ["2", "4"],
+        "keyword": "Then "
+      }
+    ],
+    "tags": [{ "name": "@invent", "astNodeId": "6" }]
+  },
+  "testCaseStartedId": "34"
+}
