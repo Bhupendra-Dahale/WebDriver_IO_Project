@@ -1,4 +1,5 @@
 import reporter from "../../helper/reporter.ts";
+import chai from "chai";
 import Page from "./page.ts";
 
 class Employee extends Page{
@@ -25,12 +26,13 @@ class Employee extends Page{
     get empid() {return $(`//div[@class='oxd-input-group oxd-input-field-bottom-space']//input[@class='oxd-input oxd-input--active']`)}
     get save() {return $(`[type='submit']`)}
 
-    async enterDetails(firstname: string, middlename: string, lastname: string){
+    async enterDetails(testid: string, firstname: string, middlename: string, lastname: string){
         try{
             await this.typeInto(await this.fn, firstname)
             await this.typeInto(await this.mn, middlename)
             await this.typeInto(await this.ln, lastname)
             await this.click(await this.save)
+            reporter.addstep(testid, "info", "Initial Details filled successfully", true)
         }catch(err){
             //@ts-ignore
             err.message = `>>> Error entering Initial Details ${err.message}`
@@ -60,7 +62,7 @@ class Employee extends Page{
             await this.dropDown(await this.nationalList, nationality)
             reporter.addstep(testid, "info", "Nationality selected successfully", true)
         }catch(err){
-            reporter.addstep(testid, "info", `>>> Error in Nationality selection : ${err}`, true)
+            reporter.addstep(testid, "info", `Error in Nationality selection : ${err}`, true)
             throw err
         }
     }
@@ -72,7 +74,7 @@ class Employee extends Page{
             await this.dropDown(await this.maritalList, maritalstate)
             await browser.pause(3000)
         }catch(err){
-            reporter.addstep(testid, "info", `>>> Error in Marital status selection : ${err}`, true)
+            reporter.addstep(testid, "info", `Error in Marital status selection : ${err}`, true)
             throw err
         }
     }
@@ -81,14 +83,19 @@ class Employee extends Page{
         try{
             await this.dobBtn.waitForClickable({timeout: 3000})
             await this.dobBtn.click()
+
+            await this.yearBtn.waitForClickable({timeout: 3000})
             await this.yearBtn.click()
             await this.dropDown(await this.yearList, year)
+
+            await this.monthBtn.waitForClickable({timeout: 3000})
             await this.monthBtn.click()
             await this.dropDown(await this.monthList, month)
+
             await this.dropDown(await this.dateList, date)
             await browser.pause(3000)
         }catch(err){
-            reporter.addstep(testid, "info", `>>> Error in DOB selection : ${err}`, true)
+            reporter.addstep(testid, "info", `Error in DOB selection : ${err}`, true)
             throw err
         }
     }
@@ -96,24 +103,24 @@ class Employee extends Page{
     async genderSelection(testid: string, gender: string){
         try{
             if(gender === "Male"){
-                await this.gender_male.waitForClickable()
+                await this.gender_male.waitForClickable({timeout: 3000})
                 await this.gender_male.click()
             }else{
-                await this.gender_female.waitForClickable()
+                await this.gender_female.waitForClickable({timeout: 3000})
                 await this.gender_female.click()
             }
             await browser.pause(3000)
         }catch(err){
-            reporter.addstep(testid, "info", `>>> Error in Gender selection : ${err}`, true)
+            reporter.addstep(testid, "info", `Error in Gender selection : ${err}`, true)
             throw err
         }
     }
 
     async save_back(){
         try{
-            await this.saveBtn.waitForClickable()
+            await this.saveBtn.waitForClickable({timeout: 3000})
             await this.saveBtn.click()
-            await this.empListBtn.waitForClickable()
+            await this.empListBtn.waitForClickable({timeout: 3000})
             await this.empListBtn.click()
             await browser.pause(3000)
         }catch(err){
@@ -127,7 +134,7 @@ class Employee extends Page{
     get searchBtn() {return $ (`//button[normalize-space()='Search']`)}
     // get empid_test() {return $ (`//div[@class='card-item card-header-slot-content --left']//div[@class='data']`)}
     // get lastNameTest() {return $ (`(//div[@class='data'])[3]`)}
-    get lastNameTest() {return $ (`div[class='card-item card-body-slot'] div:nth-child(2) div:nth-child(1) div:nth-child(2)`)}
+    // get lastNameTest() {return $ (`div[class='card-item card-body-slot'] div:nth-child(2) div:nth-child(1) div:nth-child(2)`)}
     
     async Employee_Check(testid: string, firstname: string, lastname: string){
         try{
@@ -139,12 +146,13 @@ class Employee extends Page{
             //Assertion
             // let EmpId = await this.empid_test.getText()
             // chai.expect(EmpId).equal(empid)
-            await this.lastNameTest.waitForDisplayed()
-            let LN = await this.lastNameTest.getText()
-            chai.expect(LN).equal(lastname)
-            reporter.addstep(testid, "info", `>>> Employee is present `, true)
+            // await this.lastNameTest.waitForDisplayed({timeout: 3000})
+            await $(`//div[normalize-space()='${lastname}']`).waitForDisplayed({timeout: 3000})
+            let LN = await $(`//div[normalize-space()='${lastname}']`).getText()
+            chai.expect(LN).to.be.equal(lastname)
+            reporter.addstep(testid, "info", `Employee is present `, true)
         }catch(err){
-            reporter.addstep(testid, "info", `>>> Employee is not present : ${err}`, true)
+            reporter.addstep(testid, "info", `Employee is not present : ${err}`, true)
             throw err
         }
     }

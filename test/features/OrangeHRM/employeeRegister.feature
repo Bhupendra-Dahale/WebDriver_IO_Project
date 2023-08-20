@@ -10,4 +10,4 @@ Feature: Employee Registration
 
         Examples:
             | Test_ID      | URL                                                                | FirstName | MiddleName | LastName | Nationality | Marital_status | Year | Month   | Date | Gender |
-            | HRM_Login_01 | https://opensource-demo.orangehrmlive.com/web/index.php/auth/login | priyanka     | Saurabh    | sharma    | Indian      | Single         | 1998 | January | 23   | Male   |
+            | HRM_Login_01 | https://opensource-demo.orangehrmlive.com/web/index.php/auth/login | Mayur     | Nitin      |  Ramteke | Indian      | Single         | 1999 | January | 23   | Female |

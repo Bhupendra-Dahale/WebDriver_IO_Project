@@ -10,11 +10,8 @@
     "demo": "set HEADLESS=Y&& wdio run wdio.conf.ts --cucumberOpts.tagExpression='@demo'",
     "web": "set HEADLESS=Y&& wdio run wdio.conf.ts --cucumberOpts.tagExpression='@web'",
     "invent": "set HEADLESS=Y&& wdio run wdio.conf.ts --cucumberOpts.tagExpression='@invent'",
-    
     "Test": "wdio run ./wdio.conf.ts --suite Test",
-
     "test:invent": "set HEADLESS=N&& wdio run config/wdio.test.conf.ts --cucumberOpts.tagExpression='@invent'",
-
     "hrm": "set HEADLESS=N&& wdio run ./wdio.conf.ts --suite OrangeHRM"
   },
   "keywords": [
@@ -35,9 +32,11 @@
     "chai": "^4.3.7",
     "chromedriver": "^115.0.0",
     "dotenv": "^16.3.1",
+    "geckodriver": "^4.2.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6",
     "wdio-chromedriver-service": "^8.1.1",
+    "wdio-geckodriver-service": "^5.0.2",
     "wdio-vscode-service": "^5.2.1",
     "winston": "^3.10.0"
   },

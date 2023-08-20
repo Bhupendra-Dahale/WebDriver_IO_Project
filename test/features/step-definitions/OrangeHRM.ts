@@ -27,7 +27,7 @@ When(/^Go to the Add Employee section$/, async function(){
 })
 
 When(/^Fill the Initial Details (.*) (.*) (.*)$/, async function (fistname, middlename, lastname) {
-    await emp.enterDetails(fistname, middlename, lastname)
+    await emp.enterDetails(this.testid, fistname, middlename, lastname)
 })
 
 When(/^Fill the Personal Details (.*) (.*) (.*) (.*) (.*) (.*)$/,async function (Nationality, Marital_status, Year, Month, Date, Gender){
